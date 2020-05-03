@@ -4,17 +4,15 @@ import edu.debis.application.ISBNService;
 import edu.debis.dto.ISBN;
 import io.agroal.api.AgroalDataSource;
 import io.quarkus.agroal.DataSource;
-import lombok.NonNull;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 @ApplicationScoped
 public class ISBNServiceJDBC implements ISBNService {
@@ -41,7 +39,7 @@ public class ISBNServiceJDBC implements ISBNService {
     }
 
     @Override
-    public ISBN getDetails(@NonNull String code) {
+    public ISBN getDetails(@NotNull(message = "Id can't be Null!") String code) {
 
         ISBN isbn;
         try {

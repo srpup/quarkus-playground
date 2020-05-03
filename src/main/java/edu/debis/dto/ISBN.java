@@ -1,6 +1,5 @@
 package edu.debis.dto;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,7 +7,8 @@ import lombok.ToString;
 @ToString
 public class ISBN {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private String code, area, publisher;
 
     public ISBN(Builder builder) {
@@ -28,8 +28,8 @@ public class ISBN {
         }
 
         public ISBN build() {
-            ISBN isbn =  new ISBN(this);
-           // System.out.println("isbn = " + isbn);
+            ISBN isbn = new ISBN(this);
+            // System.out.println("isbn = " + isbn);
             return isbn;
         }
     }
